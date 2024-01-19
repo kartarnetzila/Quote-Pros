@@ -34,19 +34,58 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter/Inter-Regular.woff2') format('woff2'),
+        url('../fonts/Inter/Inter-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter/Inter-Medium.woff2') format('woff2'),
+        url('../fonts/Inter/Inter-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter/Inter-SemiBold.woff2') format('woff2'),
+        url('../fonts/Inter/Inter-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter/Inter-Bold.woff2') format('woff2'),
+        url('../fonts/Inter/Inter-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --body-background: #ECEBEB;
     --sidebar-background: #333333;
     --text-color: #333333;
     --black: #000;
     --white: #fff;
+    --accent-color: #A5D541;
+    --delete-color: #ED5E68;
+    --heading-font: 'New Spirit', sans-serif;
+    --body-font: 'Inter', sans-serif;
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'New Spirit', sans-serif;
     outline: none !important;
     box-shadow: none;
     -webkit-tap-highlight-color: transparent;
@@ -54,6 +93,11 @@
 
 body {
     background-color: var(--body-background);
+    font-family: var(--body-font);
+}
+
+button {
+    font-family: var(--body-font);
 }
 
 figure {
@@ -69,7 +113,7 @@ img {
 
 a {
     text-decoration: none;
-    color: #333333;
+    color: var(--text-color);
 }
 
 h1,
@@ -78,14 +122,17 @@ h3,
 h4,
 h5,
 h6 {
+    font-family: var(--heading-font);
     font-weight: 600;
 }
 
 input,
-textarea {
+textarea,
+select {
     outline: none;
     box-shadow: none;
     background-color: var(--white);
+    font-family: var(--body-font);
 }
 
 input::placeholder,
@@ -94,6 +141,9 @@ textarea::placeholder {
 }
 
 .btn {
+    font-weight: 500;
+    min-width: 120px;
+    text-align: center;
     border: none;
     display: inline-block;
     padding: 14px 25px;
@@ -105,7 +155,7 @@ textarea::placeholder {
 }
 
 .btn:hover {
-    background-color: #A5D541;
+    background-color: var(--accent-color);
 }
 
 .text-center {
@@ -136,7 +186,7 @@ textarea::placeholder {
 }
 
 .chat-sidebar__header {
-    padding: 20px;
+    padding: 25px 20px;
 }
 
 .logo-wrapper {
@@ -151,7 +201,7 @@ textarea::placeholder {
 .chat-sidebar__footer-links-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 15px;
 }
 
 .chat-sidebar__footer-link {
@@ -163,7 +213,7 @@ textarea::placeholder {
 }
 
 .site-header {
-    padding: 20px 40px;
+    padding: 25px 40px;
 }
 
 .site-nav__list {
@@ -171,6 +221,10 @@ textarea::placeholder {
     align-items: center;
     justify-content: end;
     gap: 30px;
+}
+
+.site-nav__list-item-link {
+    font-weight: 500;
 }
 
 .site-nav__list-item-button {
@@ -185,20 +239,21 @@ textarea::placeholder {
 }
 
 .chatbox-wrapper {
-    padding: 30px;
+    padding: 20px 30px 30px;
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 30px;
+    height: 100%;
 }
 
 .main-chatbox__heading {
     font-size: 36px;
     padding-bottom: 15px;
-    border-bottom: 1px solid #A5D541;
+    border-bottom: 1px solid var(--accent-color);
 }
 
 .main-chatbox__heading span {
-    color: #A5D541;
+    color: var(--accent-color);
 }
 
 .main-chatbox__footer {
@@ -210,11 +265,16 @@ textarea::placeholder {
 }
 
 .field-submit-button {
-    background-color: #A5D541;
-    color: #fff;
+    background-color: var(--accent-color);
+    color: var(--white);
     padding: 8px 18px;
+    min-width: initial;
     position: absolute;
     right: 12px;
+}
+
+.field-submit-button:hover {
+    background-color: var(--text-color);
 }
 
 .field-input {
@@ -234,7 +294,27 @@ textarea::placeholder {
 }
 
 .chatbox {
-    padding: 25px 0;
+    margin: 20px 0;
+    height: calc(100vh - 360px);
+    overflow: auto;
+    padding-right: 8px;
+}
+
+.chatbox::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chatbox::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.chatbox::-webkit-scrollbar-thumb {
+    background: rgba(51, 51, 51, 0.6);
+    border-radius: 15px;
+}
+
+.chatbox::-webkit-scrollbar-thumb:hover {
+    background: rgba(51, 51, 51, 0.8);
 }
 
 .chat-message {
@@ -242,6 +322,11 @@ textarea::placeholder {
     border-radius: 25px 15px 0 25px;
     width: fit-content;
     color: var(--white);
+    margin-bottom: 15px;
+}
+
+.chat-message:last-child {
+    margin-bottom: 0;
 }
 
 .user-message {
@@ -279,6 +364,11 @@ textarea::placeholder {
 
 .new-chat__button {
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.new-chat__button:hover {
+    color: var(--accent-color);
 }
 
 .field-submit-button svg,
@@ -288,8 +378,8 @@ textarea::placeholder {
 }
 
 .chat-delete-button {
-    background-color: #ED5E68;
-    color: #fff;
+    background-color: var(--delete-color);
+    color: var(--white);
     font-size: 16px;
     font-weight: 500;
     border-radius: 8px;
@@ -306,11 +396,11 @@ textarea::placeholder {
 }
 
 .chat-list {
-    padding: 10px 0;
+    padding: 5px 0;
 }
 
 .chat-list__item {
-    padding: 12px 0;
+    padding: 14px 0;
     border-bottom: 1px solid #CCCCCC;
     display: flex;
     align-items: center;
@@ -336,9 +426,9 @@ textarea::placeholder {
 }
 
 .chat-list__item-edit:hover {
-    color: #A5D541;
+    color: var(--accent-color);
 }
 
 .chat-list__item-delete:hover {
-    color: #ED5E68;
+    color: var(--delete-color);
 }
