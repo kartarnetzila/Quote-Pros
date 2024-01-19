@@ -1,0 +1,344 @@
+@font-face {
+    font-family: 'New Spirit';
+    src: url('../fonts/NewSpirit/NewSpirit-Regular.woff2') format('woff2'),
+        url('../fonts/NewSpirit/NewSpirit-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'New Spirit';
+    src: url('../fonts/NewSpirit/NewSpirit-Medium.woff2') format('woff2'),
+        url('../fonts/NewSpirit/NewSpirit-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'New Spirit';
+    src: url('../fonts/NewSpirit/NewSpirit-SemiBold.woff2') format('woff2'),
+        url('../fonts/NewSpirit/NewSpirit-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'New Spirit';
+    src: url('../fonts/NewSpirit/NewSpirit-Bold.woff2') format('woff2'),
+        url('../fonts/NewSpirit/NewSpirit-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --body-background: #ECEBEB;
+    --sidebar-background: #333333;
+    --text-color: #333333;
+    --black: #000;
+    --white: #fff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'New Spirit', sans-serif;
+    outline: none !important;
+    box-shadow: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--body-background);
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: #333333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+}
+
+input,
+textarea {
+    outline: none;
+    box-shadow: none;
+    background-color: var(--white);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #AEAEAE;
+}
+
+.btn {
+    border: none;
+    display: inline-block;
+    padding: 14px 25px;
+    cursor: pointer;
+    border-radius: 40px;
+    background-color: var(--text-color);
+    color: var(--white);
+    transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #A5D541;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.unstyled-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.chat-sidebar {
+    background-color: var(--sidebar-background);
+}
+
+.chat-sidebar__inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chat-section {
+    display: grid;
+    grid-template-columns: 1fr 3.5fr;
+    height: 100vh;
+}
+
+.chat-sidebar__header {
+    padding: 20px;
+}
+
+.logo-wrapper {
+    max-width: 180px;
+    display: inline-block;
+}
+
+.chat-sidebar__footer {
+    padding: 25px 20px;
+}
+
+.chat-sidebar__footer-links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.chat-sidebar__footer-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: start;
+    gap: 8px;
+    color: var(--white);
+}
+
+.site-header {
+    padding: 20px 40px;
+}
+
+.site-nav__list {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 30px;
+}
+
+.site-nav__list-item-button {
+    background-color: var(--text-color);
+    color: var(--white);
+}
+
+.chat-side__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chatbox-wrapper {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.main-chatbox__heading {
+    font-size: 36px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #A5D541;
+}
+
+.main-chatbox__heading span {
+    color: #A5D541;
+}
+
+.main-chatbox__footer {
+    background-color: var(--body-background);
+    /* position: sticky;
+    bottom: 0;
+    left: 0; */
+    /* padding: 20px 0; */
+}
+
+.field-submit-button {
+    background-color: #A5D541;
+    color: #fff;
+    padding: 8px 18px;
+    position: absolute;
+    right: 12px;
+}
+
+.field-input {
+    border: none;
+    padding: 15px 20px;
+    border-radius: 40px;
+    min-height: 64px;
+    width: 100%;
+    font-size: 18px;
+    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.06);
+}
+
+.field-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.chatbox {
+    padding: 25px 0;
+}
+
+.chat-message {
+    padding: 15px 20px;
+    border-radius: 25px 15px 0 25px;
+    width: fit-content;
+    color: var(--white);
+}
+
+.user-message {
+    background-color: var(--text-color);
+    text-align: right;
+    margin-left: auto;
+}
+
+.bot-message {
+    border-radius: 15px 25px 25px 0;
+    background-color: rgba(51, 51, 51, 0.6);
+    margin-right: auto;
+}
+
+.chat-list__wrapper {
+    background-color: var(--white);
+    border-radius: 15px;
+    padding: 18px 20px;
+}
+
+.chat-list__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.chat-list__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.new-chat__button {
+    cursor: pointer;
+}
+
+.field-submit-button svg,
+.new-chat__button svg {
+    display: block;
+    pointer-events: none;
+}
+
+.chat-delete-button {
+    background-color: #ED5E68;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.chat-delete-button:hover {
+    background-color: var(--text-color);
+}
+
+.chat-list__body {
+    height: 100%;
+    overflow: auto;
+}
+
+.chat-list {
+    padding: 10px 0;
+}
+
+.chat-list__item {
+    padding: 12px 0;
+    border-bottom: 1px solid #CCCCCC;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-list__item-buttons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.chat-list__item-button {
+    cursor: pointer;
+}
+
+.chat-list__item-button svg {
+    display: block;
+    width: 18px;
+    height: 18px;
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.chat-list__item-edit:hover {
+    color: #A5D541;
+}
+
+.chat-list__item-delete:hover {
+    color: #ED5E68;
+}
