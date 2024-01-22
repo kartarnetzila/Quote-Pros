@@ -22,7 +22,7 @@ const setChatListHeight = () => {
 window.addEventListener("DOMContentLoaded", () => {
   setChatboxHeight();
   setChatListHeight();
-  chatbox.scrollTo(0, chatbox.scrollHeight);
+  chatbox.scrollTo(0, chatbox.scrollHeight + 10);
 });
 window.addEventListener("resize", () => {
   setChatboxHeight();
