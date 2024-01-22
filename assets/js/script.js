@@ -46,7 +46,7 @@ chatForm.addEventListener("submit", (e) => {
   if (formInputValue != "") {
     chatbox.innerHTML += `<p class="chat-message user-message">${formInputValue}</p>`;
   }
-  chatbox.innerHTML += `<p class="chat-message bot-message">Fuck You 🖐</p>`;
+  chatbox.innerHTML += `<p class="chat-message bot-message">Hello Sir..</p>`;
   formInput.value = "";
   chatbox.scrollTo(0, chatbox.scrollHeight);
 });
