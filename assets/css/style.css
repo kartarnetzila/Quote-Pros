@@ -181,7 +181,7 @@ textarea::placeholder {
 
 .chat-section {
     display: grid;
-    grid-template-columns: 1fr 3.5fr;
+    grid-template-columns: 350px 1fr;
     height: 100vh;
 }
 
