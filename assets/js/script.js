@@ -5,6 +5,7 @@ const chatListFooter = document.querySelector(".chat-list__footer");
 const mobileMenuTrigger = document.querySelector(".mobile-menu__trigger");
 const chatSidebar = document.querySelector(".chat-sidebar");
 const pageOverlay = document.querySelector(".page-overlay");
+const chatForm = document.querySelector("#chat-form");
 
 const setChatboxHeight = () => {
   chatbox.style.height = `calc(100vh - ${
@@ -35,4 +36,16 @@ mobileMenuTrigger.addEventListener("click", () => {
 pageOverlay.addEventListener("click", () => {
   chatSidebar.classList.remove("chat-sidebar__visible");
   pageOverlay.classList.remove("page-overlay__visible");
+});
+
+chatForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const formInput = chatForm.querySelector("#query-input");
+  const formInputValue = formInput.value;
+  if (formInputValue != "") {
+    chatbox.innerHTML += `<p class="chat-message user-message">${formInputValue}</p>`;
+  }
+  chatbox.innerHTML += `<p class="chat-message bot-message">Fuck You 🖐</p>`;
+  formInput.value = "";
+  chatbox.scrollTo(0, chatbox.scrollHeight);
 });
