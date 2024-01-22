@@ -8,13 +8,13 @@ const pageOverlay = document.querySelector(".page-overlay");
 
 const setChatboxHeight = () => {
   chatbox.style.height = `calc(100vh - ${
-    chatbox.offsetTop + chatboxFooter.offsetHeight + 50
+    chatbox.offsetTop + chatboxFooter.offsetHeight + 55
   }px)`;
 };
 
 const setChatListHeight = () => {
   chatList.style.height = `calc(100vh - ${
-    chatList.offsetTop + chatListFooter.offsetHeight + 50
+    chatList.offsetTop + chatListFooter.offsetHeight + 55
   }px)`;
 };
 
