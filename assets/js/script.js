@@ -6,10 +6,13 @@ const mobileMenuTrigger = document.querySelector(".mobile-menu__trigger");
 const chatSidebar = document.querySelector(".chat-sidebar");
 const pageOverlay = document.querySelector(".page-overlay");
 const chatForm = document.querySelector("#chat-form");
+const siteNavDropDownItems = document.querySelectorAll(
+  ".site-nav__has-dropdown"
+);
 
 const setChatboxHeight = () => {
   chatbox.style.height = `calc(100vh - ${
-    chatbox.offsetTop + chatboxFooter.offsetHeight + 55
+    chatbox.offsetTop + chatboxFooter.offsetHeight + 40
   }px)`;
 };
 
@@ -37,6 +40,12 @@ mobileMenuTrigger.addEventListener("click", () => {
 pageOverlay.addEventListener("click", () => {
   chatSidebar.classList.remove("chat-sidebar__visible");
   pageOverlay.classList.remove("page-overlay__visible");
+});
+
+siteNavDropDownItems.forEach((siteNavDropDownItem) => {
+  siteNavDropDownItem.addEventListener("click", () => {
+    siteNavDropDownItem.classList.toggle("site-nav__has-dropdown-open");
+  });
 });
 
 chatForm.addEventListener("submit", (e) => {

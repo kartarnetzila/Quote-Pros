@@ -175,6 +175,7 @@ textarea::placeholder {
 
 .chat-sidebar__inner {
     height: 100%;
+    overflow: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -259,10 +260,7 @@ textarea::placeholder {
 
 .main-chatbox__footer {
     background-color: var(--body-background);
-    /* position: sticky;
-    bottom: 0;
-    left: 0; */
-    /* padding: 20px 0; */
+    margin-top: 15px;
 }
 
 .field-submit-button {
@@ -298,28 +296,18 @@ textarea::placeholder {
     position: relative;
 }
 
+.main-chatbox__header {
+    margin-bottom: 15px;
+}
+
 .chatbox {
-    margin: 20px 0;
+    /* margin: 20px 0; */
     height: calc(100vh - 360px);
     overflow: auto;
-    padding-right: 8px;
 }
 
 .chatbox::-webkit-scrollbar {
-    width: 8px;
-}
-
-.chatbox::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-.chatbox::-webkit-scrollbar-thumb {
-    background: rgba(51, 51, 51, 0.6);
-    border-radius: 15px;
-}
-
-.chatbox::-webkit-scrollbar-thumb:hover {
-    background: rgba(51, 51, 51, 0.8);
+    display: none;
 }
 
 .chat-message {
@@ -486,6 +474,10 @@ textarea::placeholder {
     border-radius: 50%;
 }
 
+.site-nav__has-dropdown-open .site-nav__mobile-dropdown {
+    display: none;
+}
+
 @media screen and (max-width: 1240px) {
     .chat-section {
         grid-template-columns: 260px 1fr;
@@ -551,6 +543,27 @@ textarea::placeholder {
         flex-direction: column;
         align-items: start;
         gap: 15px;
+        color: #fff;
+    }
+
+    .site-nav__list-item {
+        width: 100%;
+    }
+
+    .site-nav__has-dropdown {
+        position: relative;
+    }
+
+    .site-nav__dropdown-icon {
+        position: absolute;
+        top: 3px;
+        right: 0;
+        transition: transform 0.1s ease-in-out;
+        transform: rotate(180deg);
+    }
+
+    .site-nav__has-dropdown-open .site-nav__dropdown-icon {
+        transform: rotate(0deg);
     }
 
     .site-nav__list-item-link {
@@ -564,8 +577,13 @@ textarea::placeholder {
         grid-template-columns: 1.5fr 1fr;
     }
 
+    .chat-list {
+        padding: 0;
+        height: auto !important;
+    }
+
     .chat-list__item {
-        padding: 10px 0;
+        padding: 12px 0;
     }
 }
 
@@ -587,11 +605,11 @@ textarea::placeholder {
         padding-bottom: 12px;
     }
 
-    .chat-list {
-        min-height: 300px;
-    }
-
     .chat-message {
         padding: 10px 15px;
+    }
+
+    .chatbox-wrapper .chat-list__wrapper {
+        display: none;
     }
 }
