@@ -485,6 +485,17 @@ textarea::placeholder {
     border-radius: 50%;
 }
 
+@media screen and (max-width: 1240px) {
+    .chat-section {
+        grid-template-columns: 260px 1fr;
+    }
+
+    .chatbox-wrapper {
+        grid-template-columns: 1fr 260px;
+        gap: 20px;
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .mobile-menu__trigger-wrapper {
         display: flex;
