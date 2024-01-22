@@ -241,7 +241,7 @@ textarea::placeholder {
 .chatbox-wrapper {
     padding: 15px 30px 25px;
     display: grid;
-    grid-template-columns: 2.2fr 1fr;
+    grid-template-columns: 1fr 340px;
     gap: 30px;
     height: 100%;
 }
