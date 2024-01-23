@@ -199,10 +199,6 @@
     width: 100%;
 }
 
-.chat-delete-button:hover {
-    background-color: var(--text-color);
-}
-
 .chat-list {
     height: 100%;
     overflow: auto;
