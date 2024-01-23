@@ -142,6 +142,7 @@
     width: fit-content;
     color: var(--white);
     margin-bottom: 15px;
+    word-wrap: break-word;
 }
 
 .chat-message:last-child {
