@@ -1,7 +1,4 @@
 const chatbox = document.querySelector(".chatbox");
-const chatboxFooter = document.querySelector(".main-chatbox__footer");
-const chatList = document.querySelector(".chat-list");
-const chatListFooter = document.querySelector(".chat-list__footer");
 const mobileMenuTrigger = document.querySelector(".mobile-menu__trigger");
 const chatSidebar = document.querySelector(".chat-sidebar");
 const pageOverlay = document.querySelector(".page-overlay");
