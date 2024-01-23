@@ -198,6 +198,7 @@ textarea::placeholder {
 
 .chat-sidebar__footer {
     padding: 25px 20px;
+    background-color: var(--sidebar-background);
 }
 
 .chat-sidebar__footer-links-list {
@@ -238,6 +239,7 @@ textarea::placeholder {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
 }
 
 .chatbox-wrapper {
@@ -245,7 +247,14 @@ textarea::placeholder {
     display: grid;
     grid-template-columns: 1fr 340px;
     gap: 30px;
+    overflow: hidden;
+}
+
+.main-chatbox {
+    display: flex;
+    flex-direction: column;
     height: 100%;
+    overflow: hidden;
 }
 
 .main-chatbox__heading {
@@ -260,7 +269,6 @@ textarea::placeholder {
 
 .main-chatbox__footer {
     background-color: var(--body-background);
-    margin-top: 15px;
 }
 
 .field-submit-button {
@@ -296,13 +304,8 @@ textarea::placeholder {
     position: relative;
 }
 
-.main-chatbox__header {
-    margin-bottom: 15px;
-}
-
 .chatbox {
-    /* margin: 20px 0; */
-    height: calc(100vh - 360px);
+    margin: 20px 0;
     overflow: auto;
 }
 
@@ -313,6 +316,7 @@ textarea::placeholder {
 .chat-message {
     padding: 15px 20px;
     border-radius: 25px 15px 0 25px;
+    max-width: 80%;
     width: fit-content;
     color: var(--white);
     margin-bottom: 15px;
@@ -338,12 +342,9 @@ textarea::placeholder {
     background-color: var(--white);
     border-radius: 15px;
     padding: 18px 20px;
-}
-
-.chat-list__inner {
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     height: 100%;
 }
 
@@ -384,9 +385,13 @@ textarea::placeholder {
 }
 
 .chat-list {
-    padding: 5px 0;
     height: 100%;
     overflow: auto;
+    margin-bottom: 12px;
+}
+
+.chat-list::-webkit-scrollbar {
+    display: none;
 }
 
 .chat-list__item {
@@ -474,7 +479,15 @@ textarea::placeholder {
     border-radius: 50%;
 }
 
+.site-nav__mobile-dropdown {
+    display: none;
+}
+
 .site-nav__has-dropdown-open .site-nav__mobile-dropdown {
+    display: block;
+}
+
+.site-nav-dropdown__chat-list {
     display: none;
 }
 
@@ -484,7 +497,6 @@ textarea::placeholder {
     }
 
     .chatbox-wrapper {
-        grid-template-columns: 1fr 260px;
         gap: 20px;
     }
 }
@@ -500,11 +512,13 @@ textarea::placeholder {
     }
 
     .chatbox-wrapper {
+        grid-template-columns: 1.5fr 1fr;
         padding: 25px 30px;
     }
 
     .chat-section {
         display: block;
+        overflow: hidden;
     }
 
     .logo-wrapper {
@@ -554,16 +568,19 @@ textarea::placeholder {
         position: relative;
     }
 
+    .site-nav__has-dropdown .site-nav__list-item-link {
+        width: 100%;
+    }
+
     .site-nav__dropdown-icon {
         position: absolute;
         top: 3px;
         right: 0;
         transition: transform 0.1s ease-in-out;
-        transform: rotate(180deg);
     }
 
     .site-nav__has-dropdown-open .site-nav__dropdown-icon {
-        transform: rotate(0deg);
+        transform: rotate(180deg);
     }
 
     .site-nav__list-item-link {
@@ -573,21 +590,20 @@ textarea::placeholder {
         min-width: auto;
     }
 
-    .chatbox-wrapper {
-        grid-template-columns: 1.5fr 1fr;
-    }
-
-    .chat-list {
-        padding: 0;
-        height: auto !important;
-    }
-
     .chat-list__item {
         padding: 12px 0;
     }
+
+    .chat-side__right {
+        height: 100vh;
+    }
 }
 
-@media screen and (max-width: 797px) {
+@media screen and (max-width: 767px) {
+    .site-nav-dropdown__chat-list {
+        display: block;
+    }
+
     .chatbox-wrapper {
         grid-template-columns: 1fr;
     }
@@ -597,7 +613,7 @@ textarea::placeholder {
     }
 
     .chatbox-wrapper {
-        padding: 30px 20px 30px;
+        padding: 25px 20px 20px;
     }
 
     .main-chatbox__heading {
@@ -611,5 +627,21 @@ textarea::placeholder {
 
     .chatbox-wrapper .chat-list__wrapper {
         display: none;
+    }
+
+    .chat-input {
+        min-height: 56px;
+        font-size: 16px;
+        padding: 15px 90px 15px 25px;
+    }
+
+    .field-submit-button {
+        padding: 6px 15px;
+        right: 8px;
+    }
+
+    .chat-list {
+        padding: 0;
+        height: auto !important;
     }
 }

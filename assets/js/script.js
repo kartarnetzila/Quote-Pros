@@ -7,30 +7,10 @@ const chatSidebar = document.querySelector(".chat-sidebar");
 const pageOverlay = document.querySelector(".page-overlay");
 const chatForm = document.querySelector("#chat-form");
 const siteNavDropDownItems = document.querySelectorAll(
-  ".site-nav__has-dropdown"
+  ".site-nav__has-dropdown .site-nav__list-item-link"
 );
 
-const setChatboxHeight = () => {
-  chatbox.style.height = `calc(100vh - ${
-    chatbox.offsetTop + chatboxFooter.offsetHeight + 40
-  }px)`;
-};
-
-const setChatListHeight = () => {
-  chatList.style.height = `calc(100vh - ${
-    chatList.offsetTop + chatListFooter.offsetHeight + 55
-  }px)`;
-};
-
-window.addEventListener("DOMContentLoaded", () => {
-  setChatboxHeight();
-  setChatListHeight();
-  chatbox.scrollTo(20, chatbox.scrollHeight + 10);
-});
-window.addEventListener("resize", () => {
-  setChatboxHeight();
-  setChatListHeight();
-});
+chatbox.scrollTo(20, chatbox.scrollHeight + 10);
 
 mobileMenuTrigger.addEventListener("click", () => {
   chatSidebar.classList.toggle("chat-sidebar__visible");
@@ -44,7 +24,9 @@ pageOverlay.addEventListener("click", () => {
 
 siteNavDropDownItems.forEach((siteNavDropDownItem) => {
   siteNavDropDownItem.addEventListener("click", () => {
-    siteNavDropDownItem.classList.toggle("site-nav__has-dropdown-open");
+    siteNavDropDownItem.parentElement.classList.toggle(
+      "site-nav__has-dropdown-open"
+    );
   });
 });
 
@@ -54,8 +36,8 @@ chatForm.addEventListener("submit", (e) => {
   const formInputValue = formInput.value;
   if (formInputValue != "") {
     chatbox.innerHTML += `<p class="chat-message user-message">${formInputValue}</p>`;
+    chatbox.innerHTML += `<p class="chat-message bot-message">Hello Sir..</p>`;
+    formInput.value = "";
+    chatbox.scrollTo(0, chatbox.scrollHeight);
   }
-  chatbox.innerHTML += `<p class="chat-message bot-message">Hello Sir..</p>`;
-  formInput.value = "";
-  chatbox.scrollTo(0, chatbox.scrollHeight);
 });
