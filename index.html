@@ -9,6 +9,7 @@
       href="./assets/images/quote-pros-favicon.webp"
       type="image/x-icon"
     />
+    <link rel="stylesheet" href="./assets/css/base.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
@@ -607,7 +608,7 @@
                   class="site-nav__list-item site-nav__list-item-button-wrapper"
                 >
                   <a
-                    href="#"
+                    href="./account/signup.html"
                     aria-label="Sign Up"
                     class="btn btn-secondary site-nav__list-item-link site-nav__list-item-button"
                     >Sign Up</a
@@ -615,12 +616,21 @@
                 </li>
               </ul>
             </nav>
-            <a
-              href="#"
-              aria-label="Sign Up"
-              class="btn btn-secondary site-nav__list-item-link site-nav__list-item-button site-nav__list-item-button-mobile"
-              >Sign Up</a
-            >
+            <div class="header__user-info">
+              <a
+                href="./account/signup.html"
+                aria-label="Sign Up"
+                class="btn btn-secondary site-nav__list-item-link site-nav__list-item-button site-nav__list-item-button-mobile"
+                >Sign Up</a
+              >
+              <div class="header__user__image-wrapper">
+                <img
+                  src="./assets/images/user-image.webp"
+                  alt="User Image"
+                  class="header__user__image"
+                />
+              </div>
+            </div>
           </header>
           <div class="chatbox-wrapper">
             <div class="main-chatbox">

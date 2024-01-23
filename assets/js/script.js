@@ -7,34 +7,38 @@ const siteNavDropDownItems = document.querySelectorAll(
   ".site-nav__has-dropdown .site-nav__list-item-link"
 );
 
-chatbox.scrollTo(0, chatbox.scrollHeight + 20);
+chatbox && chatbox.scrollTo(0, chatbox.scrollHeight + 20);
 
-mobileMenuTrigger.addEventListener("click", () => {
-  chatSidebar.classList.toggle("chat-sidebar__visible");
-  pageOverlay.classList.toggle("page-overlay__visible");
-});
-
-pageOverlay.addEventListener("click", () => {
-  chatSidebar.classList.remove("chat-sidebar__visible");
-  pageOverlay.classList.remove("page-overlay__visible");
-});
-
-siteNavDropDownItems.forEach((siteNavDropDownItem) => {
-  siteNavDropDownItem.addEventListener("click", () => {
-    siteNavDropDownItem.parentElement.classList.toggle(
-      "site-nav__has-dropdown-open"
-    );
+mobileMenuTrigger &&
+  mobileMenuTrigger.addEventListener("click", () => {
+    chatSidebar.classList.toggle("chat-sidebar__visible");
+    pageOverlay.classList.toggle("page-overlay__visible");
   });
-});
 
-chatForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const formInput = chatForm.querySelector("#query-input");
-  const formInputValue = formInput.value;
-  if (formInputValue != "") {
-    chatbox.innerHTML += `<p class="chat-message user-message">${formInputValue}</p>`;
-    chatbox.innerHTML += `<p class="chat-message bot-message">Hello Sir..</p>`;
-    formInput.value = "";
-    chatbox.scrollTo(0, chatbox.scrollHeight);
-  }
-});
+mobileMenuTrigger &&
+  pageOverlay.addEventListener("click", () => {
+    chatSidebar.classList.remove("chat-sidebar__visible");
+    pageOverlay.classList.remove("page-overlay__visible");
+  });
+
+siteNavDropDownItems &&
+  siteNavDropDownItems.forEach((siteNavDropDownItem) => {
+    siteNavDropDownItem.addEventListener("click", () => {
+      siteNavDropDownItem.parentElement.classList.toggle(
+        "site-nav__has-dropdown-open"
+      );
+    });
+  });
+
+chatForm &&
+  chatForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const formInput = chatForm.querySelector("#query-input");
+    const formInputValue = formInput.value;
+    if (formInputValue != "") {
+      chatbox.innerHTML += `<p class="chat-message user-message">${formInputValue}</p>`;
+      chatbox.innerHTML += `<p class="chat-message bot-message">Hello Sir..</p>`;
+      formInput.value = "";
+      chatbox.scrollTo(0, chatbox.scrollHeight);
+    }
+  });
