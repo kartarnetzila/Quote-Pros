@@ -7,7 +7,7 @@ const siteNavDropDownItems = document.querySelectorAll(
   ".site-nav__has-dropdown .site-nav__list-item-link"
 );
 
-chatbox.scrollTo(20, chatbox.scrollHeight + 10);
+chatbox.scrollTo(0, chatbox.scrollHeight);
 
 mobileMenuTrigger.addEventListener("click", () => {
   chatSidebar.classList.toggle("chat-sidebar__visible");
