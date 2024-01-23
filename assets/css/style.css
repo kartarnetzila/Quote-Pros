@@ -121,10 +121,6 @@
     transform: translateY(-50%);
 }
 
-.field-submit-button:hover {
-    background-color: var(--text-color);
-}
-
 .chat-input {
     padding: 15px 20px;
     min-height: 64px;
