@@ -50,7 +50,7 @@
                   <a
                     href="#"
                     aria-label="Sign Up"
-                    class="btn site-nav__list-item-link site-nav__list-item-button"
+                    class="site-nav__list-item-link"
                     >Sign Up</a
                   >
                 </li>
@@ -85,8 +85,7 @@
                   </svg>
                   <div class="site-nav__mobile-dropdown">
                     <ul
-                      class="chat-list chat-list__body unstyled-list"
-                      style="height: calc(100vh - 703px)"
+                      class="chat-list chat-list__body unstyled-list scrollbar-hide"
                     >
                       <li class="chat-list__item">
                         <p>How to add video in...</p>
@@ -404,7 +403,7 @@
                     <a
                       href="#"
                       aria-label="Clear Conversation"
-                      class="chat-sidebar__footer-link"
+                      class="chat-sidebar__footer-link clear-conversation-button"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -605,7 +604,7 @@
                   <a
                     href="#"
                     aria-label="Sign Up"
-                    class="btn site-nav__list-item-link site-nav__list-item-button"
+                    class="btn btn-secondary site-nav__list-item-link site-nav__list-item-button"
                     >Sign Up</a
                   >
                 </li>
@@ -614,7 +613,7 @@
             <a
               href="#"
               aria-label="Sign Up"
-              class="btn site-nav__list-item-link site-nav__list-item-button site-nav__list-item-button-mobile"
+              class="btn btn-secondary site-nav__list-item-link site-nav__list-item-button site-nav__list-item-button-mobile"
               >Sign Up</a
             >
           </header>
@@ -625,7 +624,7 @@
                   To <span>Get Instant Quotes</span> Type Your Question Here!
                 </h1>
               </div>
-              <div class="main-chatbox__body chatbox">
+              <div class="main-chatbox__body chatbox scrollbar-hide">
                 <p class="chat-message user-message">
                   How to add video in youtube?
                 </p>
@@ -662,7 +661,10 @@
                       placeholder="Type your question here"
                       autofocus
                     />
-                    <button type="submit" class="btn field-submit-button">
+                    <button
+                      type="submit"
+                      class="btn btn-primary field-submit-button"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="30"
@@ -728,7 +730,9 @@
                   </svg>
                 </span>
               </div>
-              <ul class="chat-list chat-list__body unstyled-list">
+              <ul
+                class="chat-list chat-list__body unstyled-list scrollbar-hide"
+              >
                 <li class="chat-list__item">
                   <p>How to add video in...</p>
                   <div class="chat-list__item-buttons">
@@ -1019,7 +1023,9 @@
                 </li>
               </ul>
               <div class="chat-list__footer">
-                <button class="btn chat-delete-button">Delete All</button>
+                <button class="btn btn-danger chat-delete-button">
+                  Delete All
+                </button>
               </div>
             </div>
           </div>
